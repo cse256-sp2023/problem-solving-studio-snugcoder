@@ -427,10 +427,7 @@ function attachFormListener2() {
             );
             return;
         }
-        $mturkSubmitForm[0].removeEventListener(
-            'submit',
-            $mturkSubmitForm.onSubmit
-        );
+        $mturkSubmitForm.off('submit', submitFunc);
         $mturkSubmitForm.submit();
     };
     $mturkSubmitForm.on('submit', submitFunc);
