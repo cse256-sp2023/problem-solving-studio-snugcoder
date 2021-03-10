@@ -394,8 +394,17 @@ function attachFormListener2() {
                 'Content-Type': 'application/json',
                 'x-api-key': k,
             },
+            // sandbox: params.sandbox,
+            // wustl_key: params.wustl_key,
+            // project: params.project,
+            // iteration: params.iteration,
+            // tag: params.tag,
+            // assignmentID: data.urlData.assignmentID,
+            // hitID: data.urlData.hitID,
+            // workerID: data.urlData.workerID,
+            // log: data.serialize(),
             body: JSON.stringify({
-                sandbox: sandbox,
+                sandbox: sandbox === 'true',
                 wustl_key: wustl_key,
                 project: project,
                 iteration: iteration,
@@ -407,11 +416,12 @@ function attachFormListener2() {
             }),
         });
         console.log(resp.status);
-        console.log(await resp.json());
+        const respJSON = await resp.json();
+        console.log(respJSON);
         if (resp.status !== 200) {
             alert(
                 'You made a bad request with your submission. The server thinks that you made this error: ' +
-                    (await resp.json()).error
+                    respJSON.error
             );
             return;
         }
