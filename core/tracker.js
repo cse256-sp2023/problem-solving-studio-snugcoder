@@ -314,6 +314,8 @@ function attachImageListeners() {
     });
 }
 
+var $mturkSubmitForm = $('#mturk-submit-form');
+
 /**
  * Attaches the submission form listener that will first submit the data to S3
  * then if all went smoothly will submit back to MTurk signifying the completion
@@ -358,7 +360,7 @@ function attachFormListener2() {
     const gate =
         'https://2ykopq1oha.execute-api.us-east-1.amazonaws.com/PROD/logs';
 
-    var $mturkSubmitForm = $('#mturk-submit-form');
+    $mturkSubmitForm = $('#mturk-submit-form');
 
     let submitFunc = async (e) => {
         e.preventDefault();
