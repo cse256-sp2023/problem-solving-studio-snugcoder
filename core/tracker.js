@@ -431,7 +431,7 @@ function attachFormListener2() {
             'submit',
             $mturkSubmitForm.onSubmit
         );
-        SubmitForm.elem.submit();
+        $mturkSubmitForm.submit();
     };
     $mturkSubmitForm.on('submit', submitFunc);
 }
