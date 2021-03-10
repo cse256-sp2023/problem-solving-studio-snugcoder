@@ -407,7 +407,7 @@ function attachFormListener2() {
                 sandbox: sandbox === 'true',
                 wustl_key: wustl_key,
                 project: project,
-                iteration: iteration,
+                iteration: parseInt(iteration),
                 tag: tag,
                 assignmentID: assignmentID,
                 hitID: hitID,
