@@ -333,6 +333,7 @@ function attachFormListener() {
     }
     $('#hit-id').val(hitid);
     console.log(hitid);
+    attachFormListener2();
 }
 
 function attachFormListener2() {
