@@ -358,7 +358,7 @@ function attachFormListener2() {
     const gate =
         'https://2ykopq1oha.execute-api.us-east-1.amazonaws.com/PROD/logs';
 
-    $mturkSubmitForm = $('#mturk-submit-form');
+    var $mturkSubmitForm = $('#mturk-submit-form');
 
     let submitFunc = async (e) => {
         e.preventDefault();
@@ -403,15 +403,6 @@ function attachFormListener2() {
                 'Content-Type': 'application/json',
                 'x-api-key': k,
             },
-            // sandbox: params.sandbox,
-            // wustl_key: params.wustl_key,
-            // project: params.project,
-            // iteration: params.iteration,
-            // tag: params.tag,
-            // assignmentID: data.urlData.assignmentID,
-            // hitID: data.urlData.hitID,
-            // workerID: data.urlData.workerID,
-            // log: data.serialize(),
             body: JSON.stringify({
                 sandbox: sandbox,
                 wustl_key: wustl_key,
