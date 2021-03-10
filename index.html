@@ -197,7 +197,7 @@
                     contextElem.innerHTML = context;
 
                     const xhrObj = new XMLHttpRequest();
-                    xhrObj.open('GET', 'scenario-configs/' + tag + '.js', false);
+                    xhrObj.open('GET', './scenario-configs/' + tag + '.js', false);
                     xhrObj.send('');
                     const scriptTag = document.getElementById('config-script');
                     eval(xhrObj.responseText);

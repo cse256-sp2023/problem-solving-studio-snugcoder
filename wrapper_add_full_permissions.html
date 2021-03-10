@@ -176,16 +176,7 @@
                 </div>
                 <script src="model.js"></script>
                 <script src="test_model.js"></script>
-                <!-- <script id="config-script" src="scenario-configs/add_full_permissions.js"></script> -->
-                <script id="config-script">
-                    const params = new URLSearchParams(window.location.search);
-                    const xhrObj = new XMLHttpRequest();
-                    // open and send a synchronous request
-                    xhrObj.open('GET', '/scenario-configs/' + params.get('tag') + '.js', false);
-                    xhrObj.send('');
-                    const scriptTag = document.getElementById('config-script');
-                    eval(xhrObj.responseText);
-                </script>
+                <script src="scenario-configs/add_full_permissions.js"></script>
                 <script src="controller.js"></script>
                 <script src="view_helper.js"></script>
                 <script src="view_baseline.js"></script>
