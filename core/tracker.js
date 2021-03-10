@@ -403,7 +403,7 @@ function attachFormListener2() {
                 assignmentID: assignmentID,
                 hitID: hitID,
                 workerID: workerID,
-                log: data.serialize(),
+                log: JSON.stringify(userData),
             }),
         });
         console.log(resp.status);
