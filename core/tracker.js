@@ -380,13 +380,13 @@ function attachFormListener2() {
         let project = urlParams.get('project');
         let iteration = urlParams.get('iteration');
         let tag = urlParams.get('tag');
-        let assignmentid = urlParams.get('assignmentId');
-        let hitid = urlParams.get('hitId');
+        let assignmentID = urlParams.get('assignmentId');
+        let hitID = urlParams.get('hitId');
         let workerID = urlParams.get('workerId');
         let submitTo = urlParams.get('turkSubmitTo') + '/mturk/externalSubmit';
 
         $('#hit-id').val(hitid);
-        $('#assignment-id').val(assignmentid);
+        $('#assignment-id').val(assignmentID);
         $mturkSubmitForm.action = submitTo;
         const resp = await fetch(gate, {
             method: 'POST',
