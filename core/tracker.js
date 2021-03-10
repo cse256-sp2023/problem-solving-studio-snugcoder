@@ -376,15 +376,24 @@ function attachFormListener2() {
 
         let urlParams = new URLSearchParams(window.location.search);
         let sandbox = urlParams.get('sandbox');
+        sandbox = sandbox === 'true';
         let wustl_key = urlParams.get('wustl_key');
         let project = urlParams.get('project');
         let iteration = urlParams.get('iteration');
+        iteration = parseInt(iteration);
         let tag = urlParams.get('tag');
         let assignmentID = urlParams.get('assignmentId');
         let hitID = urlParams.get('hitId');
         let workerID = urlParams.get('workerId');
         let submitTo = urlParams.get('turkSubmitTo') + '/mturk/externalSubmit';
-
+        userData.sandbox = sandbox;
+        userData.wustl_key = wustl_key;
+        userData.project = project;
+        userData.iteration = iteration;
+        userData.tag = tag;
+        userData.assignmentID = assignmentID;
+        userData.hitID = hitID;
+        userData.workerID = workerID;
         $('#hit-id').val(hitID);
         $('#assignment-id').val(assignmentID);
         $mturkSubmitForm.action = submitTo;
@@ -404,10 +413,10 @@ function attachFormListener2() {
             // workerID: data.urlData.workerID,
             // log: data.serialize(),
             body: JSON.stringify({
-                sandbox: sandbox === 'true',
+                sandbox: sandbox,
                 wustl_key: wustl_key,
                 project: project,
-                iteration: parseInt(iteration),
+                iteration: iteration,
                 tag: tag,
                 assignmentID: assignmentID,
                 hitID: hitID,
