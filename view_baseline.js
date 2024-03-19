@@ -49,6 +49,7 @@ file_permission_users.css({
 
 // Make button to add a new user to the list:
 perm_add_user_select = define_new_user_select_field('perm_add_user', 'Add...', on_user_change = function(selected_user){
+    // console.log("add...")
     let filepath = perm_dialog.attr('filepath')
     if(selected_user && (selected_user.length > 0) && (selected_user in all_users)) { // sanity check that a user is actually selected (and exists)
         let expected_user_elem_id = `permdialog_file_user_${selected_user}`

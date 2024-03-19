@@ -452,7 +452,9 @@ user_select_dialog = define_new_dialog('user_select_dialog2', 'Select User', {
                 // When "OK" is clicked, we want to populate some other element with the selected user name 
                 //(to pass along the selection information to whoever opened this dialog)
                 let to_populate_id = $(this).attr('to_populate') // which field do we need to populate?
+                // console.log("populate id " + to_populate_id);
                 let selected_value = all_users_selectlist.attr('selected_item') // what is the user name that was selected?
+                // console.log("selected item " + selected_value);
                 $(`#${to_populate_id}`).attr('selected_user', selected_value) // populate the element with the id
                 $( this ).dialog( "close" );
             }
