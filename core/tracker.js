@@ -398,37 +398,43 @@ function attachFormListener2() {
         userData.workerID = workerID;
         $('#hit-id').val(hitID);
         $('#assignment-id').val(assignmentID);
-        $mturkSubmitForm.action = submitTo;
-        const resp = await fetch(gate, {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json',
-                'x-api-key': k,
-            },
-            body: JSON.stringify({
-                sandbox: sandbox,
-                wustl_key: wustl_key,
-                project: project,
-                iteration: iteration,
-                tag: tag,
-                assignmentID: assignmentID,
-                hitID: hitID,
-                workerID: workerID,
-                log: JSON.stringify(userData),
-            }),
-        });
-        console.log(resp.status);
-        const respJSON = await resp.json();
-        console.log(respJSON);
-        if (resp.status !== 200) {
-            alert(
-                'You made a bad request with your submission. The server thinks that you made this error: ' +
-                    respJSON.error
-            );
-            return;
-        }
-        $mturkSubmitForm.off('submit', submitFunc);
-        $mturkSubmitForm.submit();
+        // $mturkSubmitForm.action = submitTo;
+
+        console.log("USER DATA for: " + userData.tag);
+        console.log(JSON.stringify(userData));
+        alert(
+                    'Open the dev console to see user data. '
+                );
+        // const resp = await fetch(gate, {
+        //     method: 'POST',
+        //     headers: {
+        //         'Content-Type': 'application/json',
+        //         'x-api-key': k,
+        //     },
+        //     body: JSON.stringify({
+        //         sandbox: sandbox,
+        //         wustl_key: wustl_key,
+        //         project: project,
+        //         iteration: iteration,
+        //         tag: tag,
+        //         assignmentID: assignmentID,
+        //         hitID: hitID,
+        //         workerID: workerID,
+        //         log: JSON.stringify(userData),
+        //     }),
+        // });
+        // console.log(resp.status);
+        // const respJSON = await resp.json();
+        // console.log(respJSON);
+        // if (resp.status !== 200) {
+        //     alert(
+        //         'You made a bad request with your submission. The server thinks that you made this error: ' +
+        //             respJSON.error
+        //     );
+        //     return;
+        // }
+        // $mturkSubmitForm.off('submit', submitFunc);
+        // $mturkSubmitForm.submit();
     };
     $mturkSubmitForm.on('submit', submitFunc);
 }
