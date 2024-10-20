@@ -1,7 +1,55 @@
 // ---- Define your dialogs  and panels here ----
+let define_new_e_permissions = define_new_effective_permissions('effective_permissions', add_info_col=true, which_permissions=null)
+let define_new_user_select = define_new_user_select_field('user_select', 'new_user', function(selected_user) {
+    $('#effective_permissions').attr('username', selected_user)
+ })
+$('#sidepanel').append(define_new_e_permissions)
+$('#sidepanel').prepend(define_new_user_select)
+$('#effective_permissions').attr('filepath', '/C/presentation_documents/important_file.txt')
+$('#effective_permissions').attr('username', 'administrator')
 
+dialog = $('perm_info')
+let define_dialog = define_new_dialog('dialog', 'new_dialog', options={autoOpen:false})
+$('.perm_info').click(function(){
+    console.log('clicked!')
+    $(define_dialog).dialog('open')
+    let filepath = $('#effective_permissions').attr('filepath')
+    let username = $('#effective_permissions').attr('username')
+    let permissionName = $(this).attr('permission_name')
 
+    console.log('Filepath: ', filepath)
+    console.log('Username: ', username)
+    console.log('Permission Name: ', permissionName)
 
+    let file_object = path_to_file[filepath]
+    let user_object = all_users[username]
+
+    $(define_dialog).empty()
+    
+    let explanation = get_explanation_text(allow_user_action(file_object, user_object, permissionName, explain_why = true))
+    $(define_dialog).append(explanation)
+    
+})
+
+    //     $('.perm_info').click(function () {
+    
+    // console.log('clicked!')
+    // myDialog.dialog('open')
+    // // Get the filepath, username, and permission name from the clicked element
+    // let filepath = $('#effectivePermissions').attr('filepath')
+    // let username = $('#effectivePermissions').attr('username')
+    // let permissionName = $(this).attr("permission_name");
+    
+    
+    // // Get the file and user objects
+    // let file_object = path_to_file[filepath]
+    // let user_object = all_users[username]
+    
+    // myDialog.empty()
+    
+    // let explanation = get_explanation_text(allow_user_action(file_object, user_object, permissionName, explain_why = true))
+    // myDialog.append(explanation)
+    // })
 // ---- Display file structure ----
 
 // (recursively) makes and returns an html element (wrapped in a jquery object) for a given file object
